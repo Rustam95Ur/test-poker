@@ -50,8 +50,9 @@
 ## Решения по ходу работы и почему
 
 - Сделан честный partial prototype с приоритетом корректности расчета и прозрачности sample.
-- Парсер реализован как best-effort для tokenized текста (`key=value`/`key:value`), чтобы быстро получить рабочий end-to-end pipeline.
-- ClickHouse оставлен в compose как инфраструктурный сервис, но вычисления текущего MVP идут без обязательной БД (быстрее для timebox и проще для валидации).
+- Добавлен best-effort parser реальных raw HH (`PokerStars Hand #...` и `HisHands Hand #...`) с генерацией tokenized событий для текущей модели расчета.
+- Реализован ClickHouse pipeline (`events` + `events_agg`) и режим API с расчетом из агрегатов (`USE_CLICKHOUSE_STATS=1`) с fallback на file-based расчет.
+- Добавлены расширенные фильтры в UI (`spot`, `formation`, `position`, `role`, `line`, `street`) и server-side фильтры в `/api/v1/stats`.
 
 ## Edge cases, которые обработал
 
@@ -63,10 +64,9 @@
 
 ## Что не успел
 
-- Полноценный парсер реальных raw hand histories из архива (`PokerStars/H2N-like`) в единый normalized event schema.
-- Расширенные UI-фильтры (`formation/position/role/line`) как отдельные контролы.
+- Полноценный production-grade parser всех HH-вариантов и edge-сценариев (включая сложные multiway ветки) в устойчивую normalized схему.
 - Расширенная аналитика breakdown (агрегации по подкатегориям, графики).
-- Автотесты backend/frontend.
+- E2E тесты frontend и интеграционные тесты против живого ClickHouse.
 
 ## Риски
 
@@ -95,12 +95,15 @@ This indicates correct status handling with current parser/mapping coverage limi
 Условия:
 1. Подключить parser реальных hand histories в current schema.
 2. Провести sanity-check на нескольких реальных спотах.
-3. Добавить базовые автотесты на расчет numerator/denominator.
+3. Расширить parser/mapping, чтобы улучшить покрытие `gto` в отдельных контекстах (где сейчас `no_data`).
 
 ## Команды запуска
 
 ```bash
-docker compose up --build
+python backend/scripts/build_tokenized_from_clickhouse.py
+python backend/scripts/load_events_to_clickhouse.py
+docker compose up -d --build
+python -m pytest -q backend/test
 ```
 
 После старта:
