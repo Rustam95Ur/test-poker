@@ -1,0 +1,654 @@
+[
+  {
+    "id": "stat-001",
+    "label": "Flop bet frequency",
+    "description": "How often the player bets when they have a flop decision in this context.",
+    "metricFamily": "BET_FREQUENCY",
+    "spot": "SRP",
+    "formation": "BB_SB",
+    "position": "OOP",
+    "role": "PFR",
+    "line": "B",
+    "street": "flop",
+    "sizeBucket": null,
+    "state": "AVAILABLE",
+    "bindingMode": "DIRECT_EXACT",
+    "minSample": 30,
+    "opportunity": {
+      "street": "flop",
+      "canAct": true
+    },
+    "success": {
+      "street": "flop",
+      "action": "bet"
+    },
+    "contextFilters": {
+      "spot": "SRP",
+      "formation": "BB_SB",
+      "position": "OOP",
+      "role": "PFR",
+      "street": "flop"
+    },
+    "targetLine": "B",
+    "targetSizeBucket": null
+  },
+  {
+    "id": "stat-002",
+    "label": "Triple barrel frequency",
+    "description": "How often the player bets river after betting flop and turn.",
+    "metricFamily": "LINE_FREQUENCY",
+    "spot": "SRP",
+    "formation": "BB_SB",
+    "position": "OOP",
+    "role": "PFR",
+    "line": "B-B-B",
+    "street": "river",
+    "sizeBucket": null,
+    "state": "AVAILABLE",
+    "bindingMode": "CONTEXT_COMPOSED",
+    "minSample": 30,
+    "opportunity": {
+      "linePrefix": "B-B",
+      "street": "river",
+      "canAct": true
+    },
+    "success": {
+      "line": "B-B-B",
+      "action": "bet"
+    },
+    "contextFilters": {
+      "spot": "SRP",
+      "formation": "BB_SB",
+      "position": "OOP",
+      "role": "PFR",
+      "street": "river"
+    },
+    "targetLine": "B-B-B",
+    "targetSizeBucket": null
+  },
+  {
+    "id": "stat-003",
+    "label": "Delayed river bet frequency",
+    "description": "How often the player bets river after checking flop and turn.",
+    "metricFamily": "LINE_FREQUENCY",
+    "spot": "SRP",
+    "formation": "BB_SB",
+    "position": "OOP",
+    "role": "PFR",
+    "line": "X-X-B",
+    "street": "river",
+    "sizeBucket": null,
+    "state": "AVAILABLE",
+    "bindingMode": "CONTEXT_COMPOSED",
+    "minSample": 30,
+    "opportunity": {
+      "linePrefix": "X-X",
+      "street": "river",
+      "canAct": true
+    },
+    "success": {
+      "line": "X-X-B",
+      "action": "bet"
+    },
+    "contextFilters": {
+      "spot": "SRP",
+      "formation": "BB_SB",
+      "position": "OOP",
+      "role": "PFR",
+      "street": "river"
+    },
+    "targetLine": "X-X-B",
+    "targetSizeBucket": null
+  },
+  {
+    "id": "stat-004",
+    "label": "River bet-call frequency",
+    "description": "How often the player calls after betting river and facing a raise.",
+    "metricFamily": "LINE_FREQUENCY",
+    "spot": "SRP",
+    "formation": "BB_SB",
+    "position": "OOP",
+    "role": "PFR",
+    "line": "X-X-BC",
+    "street": "river",
+    "sizeBucket": null,
+    "state": "AVAILABLE",
+    "bindingMode": "CONTEXT_COMPOSED",
+    "minSample": 30,
+    "opportunity": {
+      "linePrefix": "X-X-B",
+      "street": "river",
+      "facingAction": "raise"
+    },
+    "success": {
+      "line": "X-X-BC",
+      "action": "call"
+    },
+    "contextFilters": {
+      "spot": "SRP",
+      "formation": "BB_SB",
+      "position": "OOP",
+      "role": "PFR",
+      "street": "river"
+    },
+    "targetLine": "X-X-BC",
+    "targetSizeBucket": null
+  },
+  {
+    "id": "stat-005",
+    "label": "Flop continuation bet frequency",
+    "description": "How often the preflop raiser continuation-bets flop in this formation.",
+    "metricFamily": "BET_FREQUENCY",
+    "spot": "SRP",
+    "formation": "BB_BTN",
+    "position": "IP",
+    "role": "PFR",
+    "line": "B",
+    "street": "flop",
+    "sizeBucket": null,
+    "state": "AVAILABLE",
+    "bindingMode": "CONTEXT_COMPOSED",
+    "minSample": 30,
+    "opportunity": {
+      "street": "flop",
+      "canAct": true
+    },
+    "success": {
+      "street": "flop",
+      "action": "bet"
+    },
+    "contextFilters": {
+      "spot": "SRP",
+      "formation": "BB_BTN",
+      "position": "IP",
+      "role": "PFR",
+      "street": "flop"
+    },
+    "targetLine": "B",
+    "targetSizeBucket": null
+  },
+  {
+    "id": "stat-006",
+    "label": "Turn check-back into river bet",
+    "description": "How often the player bets river after betting flop and checking turn.",
+    "metricFamily": "LINE_FREQUENCY",
+    "spot": "SRP",
+    "formation": "BB_BTN",
+    "position": "IP",
+    "role": "PFR",
+    "line": "B-X-B",
+    "street": "river",
+    "sizeBucket": null,
+    "state": "AVAILABLE",
+    "bindingMode": "CONTEXT_COMPOSED",
+    "minSample": 30,
+    "opportunity": {
+      "linePrefix": "B-X",
+      "street": "river",
+      "canAct": true
+    },
+    "success": {
+      "line": "B-X-B",
+      "action": "bet"
+    },
+    "contextFilters": {
+      "spot": "SRP",
+      "formation": "BB_BTN",
+      "position": "IP",
+      "role": "PFR",
+      "street": "river"
+    },
+    "targetLine": "B-X-B",
+    "targetSizeBucket": null
+  },
+  {
+    "id": "stat-007",
+    "label": "3BP flop bet frequency",
+    "description": "How often the aggressor bets flop in a three-bet pot.",
+    "metricFamily": "BET_FREQUENCY",
+    "spot": "3BP",
+    "formation": "BB_SB",
+    "position": "IP",
+    "role": "PFR",
+    "line": "B",
+    "street": "flop",
+    "sizeBucket": null,
+    "state": "AVAILABLE",
+    "bindingMode": "DIRECT_EXACT",
+    "minSample": 30,
+    "opportunity": {
+      "street": "flop",
+      "canAct": true
+    },
+    "success": {
+      "street": "flop",
+      "action": "bet"
+    },
+    "contextFilters": {
+      "spot": "3BP",
+      "formation": "BB_SB",
+      "position": "IP",
+      "role": "PFR",
+      "street": "flop"
+    },
+    "targetLine": "B",
+    "targetSizeBucket": null
+  },
+  {
+    "id": "stat-008",
+    "label": "3BP triple barrel frequency",
+    "description": "How often the player barrels river after betting flop and turn in a three-bet pot.",
+    "metricFamily": "LINE_FREQUENCY",
+    "spot": "3BP",
+    "formation": "BB_SB",
+    "position": "IP",
+    "role": "PFR",
+    "line": "B-B-B",
+    "street": "river",
+    "sizeBucket": null,
+    "state": "AVAILABLE",
+    "bindingMode": "CONTEXT_COMPOSED",
+    "minSample": 30,
+    "opportunity": {
+      "linePrefix": "B-B",
+      "street": "river",
+      "canAct": true
+    },
+    "success": {
+      "line": "B-B-B",
+      "action": "bet"
+    },
+    "contextFilters": {
+      "spot": "3BP",
+      "formation": "BB_SB",
+      "position": "IP",
+      "role": "PFR",
+      "street": "river"
+    },
+    "targetLine": "B-B-B",
+    "targetSizeBucket": null
+  },
+  {
+    "id": "stat-009",
+    "label": "3BP flop check frequency",
+    "description": "How often the player checks flop in this three-bet-pot context.",
+    "metricFamily": "CHECK_FREQUENCY",
+    "spot": "3BP",
+    "formation": "BB_SB",
+    "position": "IP",
+    "role": "PFR",
+    "line": "X",
+    "street": "flop",
+    "sizeBucket": null,
+    "state": "AVAILABLE",
+    "bindingMode": "DIRECT_EXACT",
+    "minSample": 30,
+    "opportunity": {
+      "street": "flop",
+      "canAct": true
+    },
+    "success": {
+      "street": "flop",
+      "action": "check"
+    },
+    "contextFilters": {
+      "spot": "3BP",
+      "formation": "BB_SB",
+      "position": "IP",
+      "role": "PFR",
+      "street": "flop"
+    },
+    "targetLine": "X",
+    "targetSizeBucket": null
+  },
+  {
+    "id": "stat-010",
+    "label": "3BP delayed turn bet frequency",
+    "description": "How often the caller-side player bets turn after flop checks through.",
+    "metricFamily": "LINE_FREQUENCY",
+    "spot": "3BP",
+    "formation": "BB_SB",
+    "position": "OOP",
+    "role": "PFC",
+    "line": "X-B",
+    "street": "turn",
+    "sizeBucket": null,
+    "state": "AVAILABLE",
+    "bindingMode": "CONTEXT_COMPOSED",
+    "minSample": 30,
+    "opportunity": {
+      "linePrefix": "X",
+      "street": "turn",
+      "canAct": true
+    },
+    "success": {
+      "line": "X-B",
+      "action": "bet"
+    },
+    "contextFilters": {
+      "spot": "3BP",
+      "formation": "BB_SB",
+      "position": "OOP",
+      "role": "PFC",
+      "street": "turn"
+    },
+    "targetLine": "X-B",
+    "targetSizeBucket": null
+  },
+  {
+    "id": "stat-011",
+    "label": "3BP river bet-call frequency",
+    "description": "How often the player calls after betting river and facing a raise in a three-bet pot.",
+    "metricFamily": "LINE_FREQUENCY",
+    "spot": "3BP",
+    "formation": "BB_SB",
+    "position": "OOP",
+    "role": "PFC",
+    "line": "X-X-BC",
+    "street": "river",
+    "sizeBucket": null,
+    "state": "AVAILABLE",
+    "bindingMode": "CONTEXT_COMPOSED",
+    "minSample": 30,
+    "opportunity": {
+      "linePrefix": "X-X-B",
+      "street": "river",
+      "facingAction": "raise"
+    },
+    "success": {
+      "line": "X-X-BC",
+      "action": "call"
+    },
+    "contextFilters": {
+      "spot": "3BP",
+      "formation": "BB_SB",
+      "position": "OOP",
+      "role": "PFC",
+      "street": "river"
+    },
+    "targetLine": "X-X-BC",
+    "targetSizeBucket": null
+  },
+  {
+    "id": "stat-012",
+    "label": "3BP half-pot river bet frequency",
+    "description": "How often the river bet uses a half-pot size in this three-bet-pot line.",
+    "metricFamily": "SIZE_FREQUENCY",
+    "spot": "3BP",
+    "formation": "BB_SB",
+    "position": "IP",
+    "role": "PFR",
+    "line": "B-X-B",
+    "street": "river",
+    "sizeBucket": "1/2",
+    "state": "NO_DATA",
+    "bindingMode": "DIRECT_EXACT",
+    "minSample": 50,
+    "opportunity": {
+      "linePrefix": "B-X",
+      "street": "river",
+      "action": "bet"
+    },
+    "success": {
+      "line": "B-X-B",
+      "action": "bet",
+      "sizeBucket": "1/2"
+    },
+    "contextFilters": {
+      "spot": "3BP",
+      "formation": "BB_SB",
+      "position": "IP",
+      "role": "PFR",
+      "street": "river"
+    },
+    "targetLine": "B-X-B",
+    "targetSizeBucket": "1/2"
+  },
+  {
+    "id": "stat-013",
+    "label": "SRP river bet-call low-sample frequency",
+    "description": "Low-sample example for calling after river bet is raised.",
+    "metricFamily": "LINE_FREQUENCY",
+    "spot": "SRP",
+    "formation": "BB_BTN",
+    "position": "OOP",
+    "role": "PFC",
+    "line": "X-X-BC",
+    "street": "river",
+    "sizeBucket": null,
+    "state": "NO_DATA",
+    "bindingMode": "DIRECT_EXACT",
+    "minSample": 50,
+    "opportunity": {
+      "linePrefix": "X-X-B",
+      "street": "river",
+      "facingAction": "raise"
+    },
+    "success": {
+      "line": "X-X-BC",
+      "action": "call"
+    },
+    "contextFilters": {
+      "spot": "SRP",
+      "formation": "BB_BTN",
+      "position": "OOP",
+      "role": "PFC",
+      "street": "river"
+    },
+    "targetLine": "X-X-BC",
+    "targetSizeBucket": null
+  },
+  {
+    "id": "stat-014",
+    "label": "SRP fold to flop bet frequency",
+    "description": "How often the caller folds when facing a flop bet.",
+    "metricFamily": "FOLD_FREQUENCY",
+    "spot": "SRP",
+    "formation": "BB_BTN",
+    "position": "OOP",
+    "role": "PFC",
+    "line": "XF",
+    "street": "flop",
+    "sizeBucket": null,
+    "state": "AVAILABLE",
+    "bindingMode": "DIRECT_EXACT",
+    "minSample": 30,
+    "opportunity": {
+      "street": "flop",
+      "facingAction": "bet"
+    },
+    "success": {
+      "action": "fold"
+    },
+    "contextFilters": {
+      "spot": "SRP",
+      "formation": "BB_BTN",
+      "position": "OOP",
+      "role": "PFC",
+      "street": "flop"
+    },
+    "targetLine": "XF",
+    "targetSizeBucket": null
+  },
+  {
+    "id": "stat-015",
+    "label": "SRP raise versus flop bet frequency",
+    "description": "How often the caller raises after facing a flop bet.",
+    "metricFamily": "RAISE_FREQUENCY",
+    "spot": "SRP",
+    "formation": "BB_BTN",
+    "position": "OOP",
+    "role": "PFC",
+    "line": "XR",
+    "street": "flop",
+    "sizeBucket": null,
+    "state": "AVAILABLE",
+    "bindingMode": "DIRECT_EXACT",
+    "minSample": 30,
+    "opportunity": {
+      "street": "flop",
+      "facingAction": "bet"
+    },
+    "success": {
+      "action": "raise"
+    },
+    "contextFilters": {
+      "spot": "SRP",
+      "formation": "BB_BTN",
+      "position": "OOP",
+      "role": "PFC",
+      "street": "flop"
+    },
+    "targetLine": "XR",
+    "targetSizeBucket": null
+  },
+  {
+    "id": "stat-016",
+    "label": "SRP flop overbet frequency",
+    "description": "How often flop bets use an overbet size in this context.",
+    "metricFamily": "SIZE_FREQUENCY",
+    "spot": "SRP",
+    "formation": "BB_BTN",
+    "position": "IP",
+    "role": "PFR",
+    "line": "B",
+    "street": "flop",
+    "sizeBucket": "overbet",
+    "state": "AVAILABLE",
+    "bindingMode": "DIRECT_EXACT",
+    "minSample": 30,
+    "opportunity": {
+      "street": "flop",
+      "action": "bet"
+    },
+    "success": {
+      "street": "flop",
+      "action": "bet",
+      "sizeBucket": "overbet"
+    },
+    "contextFilters": {
+      "spot": "SRP",
+      "formation": "BB_BTN",
+      "position": "IP",
+      "role": "PFR",
+      "street": "flop"
+    },
+    "targetLine": "B",
+    "targetSizeBucket": "overbet"
+  },
+  {
+    "id": "stat-017",
+    "label": "3BP flop overbet frequency",
+    "description": "Low-sample size-frequency example for overbetting flop in a three-bet pot.",
+    "metricFamily": "SIZE_FREQUENCY",
+    "spot": "3BP",
+    "formation": "BB_SB",
+    "position": "IP",
+    "role": "PFR",
+    "line": "B",
+    "street": "flop",
+    "sizeBucket": "overbet",
+    "state": "NO_DATA",
+    "bindingMode": "DIRECT_EXACT",
+    "minSample": 50,
+    "opportunity": {
+      "street": "flop",
+      "action": "bet"
+    },
+    "success": {
+      "street": "flop",
+      "action": "bet",
+      "sizeBucket": "overbet"
+    },
+    "contextFilters": {
+      "spot": "3BP",
+      "formation": "BB_SB",
+      "position": "IP",
+      "role": "PFR",
+      "street": "flop"
+    },
+    "targetLine": "B",
+    "targetSizeBucket": "overbet"
+  },
+  {
+    "id": "stat-018",
+    "label": "Unsupported SRP branch example",
+    "description": "Example of a line that has no supported stat in this starter catalog.",
+    "metricFamily": "LINE_FREQUENCY",
+    "spot": "SRP",
+    "formation": "BB_SB",
+    "position": "OOP",
+    "role": "PFR",
+    "line": "B-B",
+    "street": "turn",
+    "sizeBucket": null,
+    "state": "NO_STAT",
+    "bindingMode": "NONE",
+    "minSample": 30,
+    "opportunity": null,
+    "success": null,
+    "contextFilters": {
+      "spot": "SRP",
+      "formation": "BB_SB",
+      "position": "OOP",
+      "role": "PFR",
+      "street": "turn"
+    },
+    "targetLine": "B-B",
+    "targetSizeBucket": null
+  },
+  {
+    "id": "stat-019",
+    "label": "Unsupported 3BP branch example",
+    "description": "Example of an unsupported three-bet-pot line in this starter catalog.",
+    "metricFamily": "LINE_FREQUENCY",
+    "spot": "3BP",
+    "formation": "BB_SB",
+    "position": "IP",
+    "role": "PFR",
+    "line": "B-B",
+    "street": "turn",
+    "sizeBucket": null,
+    "state": "NO_STAT",
+    "bindingMode": "NONE",
+    "minSample": 30,
+    "opportunity": null,
+    "success": null,
+    "contextFilters": {
+      "spot": "3BP",
+      "formation": "BB_SB",
+      "position": "IP",
+      "role": "PFR",
+      "street": "turn"
+    },
+    "targetLine": "B-B",
+    "targetSizeBucket": null
+  },
+  {
+    "id": "stat-020",
+    "label": "Invalid context example",
+    "description": "Example of a context that should not be treated as a valid filtered stat.",
+    "metricFamily": "LINE_FREQUENCY",
+    "spot": "SRP",
+    "formation": "BB_BTN",
+    "position": "OOP",
+    "role": "PFR",
+    "line": "B",
+    "street": "flop",
+    "sizeBucket": null,
+    "state": "INVALID_CONTEXT",
+    "bindingMode": "NONE",
+    "minSample": 30,
+    "opportunity": null,
+    "success": null,
+    "contextFilters": {
+      "spot": "SRP",
+      "formation": "BB_BTN",
+      "position": "OOP",
+      "role": "PFR",
+      "street": "flop"
+    },
+    "targetLine": "B",
+    "targetSizeBucket": null
+  }
+]

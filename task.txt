@@ -1,0 +1,64 @@
+Mini Poker Stats Explorer
+
+Проблема
+
+Нужно построить мини-версию покерного статистического explorer-а.
+
+Есть история раздач игроков, история раздач ботов/GTO и stat_catalog.json. Нужно сделать рабочий прототип, который помогает выбрать покерную ситуацию, посчитать статистику population vs bot/GTO и понять, насколько можно доверять выводу.
+
+Референсы для ориентира:
+H2Note, Holdem Manager, PokerTracker 4, GTO Wizard, MDA Demon, Snap/MDA-style analysis.
+
+Не копируй эти продукты. Это только ориентиры по классу задачи.
+
+
+Ожидаемый результат
+
+За 4 часа сделай лучший рабочий прототип, который получится.
+
+Хороший результат может включать:
+
+- выбор статистики;
+- фильтры по spot / formation / position / role / line;
+- population value;
+- bot/GTO value;
+- delta;
+- sample / denominator;
+- low sample / no data / invalid state;
+- простой breakdown, график или список matched hands.
+
+Не обязательно реализовать всё. Важнее корректный расчёт и честное отображение данных, чем красивый fake dashboard.
+
+
+Ограничения
+
+Timebox: 4 часа.
+AI tools разрешены.
+Стек любой, но решение должно запускаться локально.
+
+Важно:
+
+- не вписывать готовые значения вручную — все проценты должны считаться из данных;
+- не скрывать sample / denominator;
+- не показывать fake 0%, если denominator = 0;
+- не выдавать broad/unfiltered stat за exact filtered stat;
+- если parser hand histories неполный — описать assumptions.
+
+
+Что сдать
+
+- рабочий код или максимально продвинутый partial prototype;
+- diagnosis.md;
+- команды запуска;
+- тесты, если добавил;
+- ship decision: GO / NO-GO / GO with conditions.
+
+В diagnosis.md кратко опиши:
+- что построил;
+- как понял данные и stat_catalog.json;
+- как считаешь numerator / denominator;
+- какие решения принимал по ходу работы и почему;
+- какие edge cases обработал;
+- что не успел;
+- какие риски остались;
+- как использовал AI
